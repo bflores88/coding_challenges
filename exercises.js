@@ -31,6 +31,13 @@ function SimpleAdding(num){
 
 SimpleAdding(num);
 
+function SimpleAdding1(num){
+    var result = num * (num+1) / 2;
+    console.log('Same as above, but with math formula: ' + result);
+}
+
+SimpleAdding1(num);
+
 // Function - LetterCapitalize(str)
 // The function will take the str parameter being passed and capitalize the first letter of each word.  Words will be separated by only one space.
 
