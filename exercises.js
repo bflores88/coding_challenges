@@ -3,7 +3,7 @@
 
 let num = Math.floor(Math.random() * 18) + 1;
 
-function findFactorial(num){
+function FirstFactorial(num){
     var result = num;
     for (let i=1; i<num; i++) {
         result = result * i;
@@ -12,7 +12,7 @@ function findFactorial(num){
     console.log('Factorial: ' + result);
 }
 
-findFactorial(num);
+FirstFactorial(num);
 
 
 // Function - SimpleAdding(num)
@@ -20,7 +20,7 @@ findFactorial(num);
 
 num = Math.floor(Math.random() * 1000) + 1;
 
-function sumNum(num){
+function SimpleAdding(num){
     var result = num;
     for (let i=1; i<num; i++){
         result = result + i;
@@ -29,12 +29,12 @@ function sumNum(num){
     console.log('Sum of all numbers 1 to Num: ' + result);    
 }
 
-sumNum(num);
+SimpleAdding(num);
 
 // Function - LetterCapitalize(str)
 // The function will take the str parameter being passed and capitalize the first letter of each word.  Words will be separated by only one space.
 
-function capFirstLetter(str){
+function LetterCapitalize(str){
     let strSplit = str.split(' ');
     for (var i=0; i<strSplit.length; i++){
         strSplit[i] = strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1);
@@ -42,12 +42,32 @@ function capFirstLetter(str){
     return strSplit.join(' ');
 }
 
-let capitalizeThis = capFirstLetter('today is the first day of class.');
+let capitalizeThis = LetterCapitalize('today is the first day of class.');
 
 console.log(capitalizeThis);
 
 // Function rangeRover(arr)
 // The function will take an array of two numbers and return the sum of those two numbers AND all numbers between them.  The lowest number will not always come first.  For example rangeRover([1, 4]) should return 10, i.e.(1 + 2 + 3 + 4), rangeRover([4, 1]) should also return 10.
+
+function rangeRover(arr){
+    function sortNumber(a,b) {
+        return a - b;
+    }
+
+    let sortArr = arr.sort(sortNumber);
+    console.log(sortArr);
+    let sumRange = sortArr[0];
+    let lowerNum = sortArr[0];
+    let higherNum = sortArr[1];
+    
+    for(var i=higherNum; i>lowerNum; i--){
+        sumRange = sumRange + i;
+    }
+    console.log('Sum of Range: ' + sumRange);
+}
+
+rangeRover([9, 1]);
+
 
 // Function missingLetter(str)
 // The function will find the missing letter passed in the parameter and return it.  If all letters are present in the string, the return will be undefined.  For example missingLetter("abce") should return "d", missingLetter("bcd") should return undefined.
