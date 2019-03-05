@@ -73,17 +73,18 @@ rangeRover([-2, 1]);
 // The function will find the missing letter passed in the parameter and return it.  If all letters are present in the string, the return will be undefined.  For example missingLetter("abce") should return "d", missingLetter("bcd") should return undefined.
 
 function missingLetter(str){
+    strToLower = str.toLowerCase();
 
-    for (var i=0; i<str.length; i++){
-        var code = str.charCodeAt(i);
-        if (code !== str.charCodeAt(0) + i) {
+    for (var i=0; i<strToLower.length; i++){
+        var code = strToLower.charCodeAt(i);
+        if (code !== strToLower.charCodeAt(0) + i) {
             return String.fromCharCode(code - 1);
         }
     }
     return undefined;
 }
 
-console.log(missingLetter('abcdegh'));
+console.log(missingLetter('aBcdEgh'));
 
 // Function hailCaesar(num)
 // The function will take the num parameter and convert the given number into a roman numeral.  For example hailCaesar(2) should return "II", hailCaesar(5) should return "V".
@@ -136,38 +137,8 @@ spinalTap('I BeLiEvE I cAn Fly!');
 // Function sumFibs(num)
 // The function will return the sum of all ODD Fibonacci numbers up to and including the passed number if it's a Fibonacci number.  The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, where the next number is found by adding up the two numbers before it.  For example subFibs(4) should return 5, sumbFibs(1000) should return 1785.
 
-//using for loop - this works
-function sumFibs1(num){
-    var num1 = 0;
-    var num2 = 1;
-    var num3 = num1 + num2;
-    var fibArr = [0, 1];
 
-    for(var i = 1; i<num; i+=2){
-        var fibAdd = num3;
-        fibArr.push(fibAdd);
-        num1 = num2;
-        num2 = num3;
-        num3 = num1 + num2;
-
-    }
-
-    console.log(fibArr);
-    let sumOdd = 0;
-
-    for (var i in fibArr){
-        if(fibArr[i]%2 === 1){
-            sumOdd = sumOdd + fibArr[i];
-        }
-        
-    }
-    console.log(sumOdd);
-}
-
-sumFibs1(90);
-
-
-//using while loop - this works, too
+//using while loop
 function sumFibs2(num){
     var num1 = 0;
     var num2 = 1;
@@ -192,8 +163,10 @@ function sumFibs2(num){
         }
         
     }
-    console.log(sumOdd);
+    console.log('The sum of all odd Fib bumbers up to ' + randFib + ' is ' + sumOdd + '.');
 }
 
-sumFibs2(91);
+let randFib = (Math.floor(Math.random() * 100) + 1);
+
+sumFibs2(randFib);
 
