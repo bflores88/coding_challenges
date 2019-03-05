@@ -66,7 +66,7 @@ function rangeRover(arr){
     console.log('Sum of Range: ' + sumRange);
 }
 
-rangeRover([9, 1]);
+rangeRover([-2, 1]);
 
 
 // Function missingLetter(str)
@@ -131,7 +131,69 @@ function spinalTap(str){
     console.log(newStr);
 }
 
-spinalTap('I BeLiEvE I cAn Fly.');
+spinalTap('I BeLiEvE I cAn Fly!');
 
 // Function sumFibs(num)
 // The function will return the sum of all ODD Fibonacci numbers up to and including the passed number if it's a Fibonacci number.  The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, where the next number is found by adding up the two numbers before it.  For example subFibs(4) should return 5, sumbFibs(1000) should return 1785.
+
+//using for loop - this works
+function sumFibs1(num){
+    var num1 = 0;
+    var num2 = 1;
+    var num3 = num1 + num2;
+    var fibArr = [0, 1];
+
+    for(var i = 1; i<num; i+=2){
+        var fibAdd = num3;
+        fibArr.push(fibAdd);
+        num1 = num2;
+        num2 = num3;
+        num3 = num1 + num2;
+
+    }
+
+    console.log(fibArr);
+    let sumOdd = 0;
+
+    for (var i in fibArr){
+        if(fibArr[i]%2 === 1){
+            sumOdd = sumOdd + fibArr[i];
+        }
+        
+    }
+    console.log(sumOdd);
+}
+
+sumFibs1(13);
+
+
+//using while loop - this works, too
+function sumFibs2(num){
+    var num1 = 0;
+    var num2 = 1;
+    var num3 = num1 + num2;
+    var fibArr = [0, 1];
+
+    while (num3 <= num){
+        var fibAdd = num3;
+        fibArr.push(fibAdd);
+        num1 = num2;
+        num2 = num3;
+        num3 = num1 + num2;
+
+    }
+
+    console.log(fibArr);
+    let sumOdd = 0;
+
+    for (var i in fibArr){
+        if(fibArr[i]%2 === 1){
+            sumOdd = sumOdd + fibArr[i];
+        }
+        
+    }
+    console.log(sumOdd);
+}
+
+sumFibs2(89);
+
