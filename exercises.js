@@ -88,8 +88,50 @@ console.log(missingLetter('abcdegh'));
 // Function hailCaesar(num)
 // The function will take the num parameter and convert the given number into a roman numeral.  For example hailCaesar(2) should return "II", hailCaesar(5) should return "V".
 
+function hailCaesar(num){
+    console.log('Original number: ' + num);
+    let romans = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    }
+    let roman = '';
+    for (var i in romans){
+        while(num >= romans[i]){
+            roman += i;
+            num -= romans[i];
+        }
+    }
+    console.log('Roman numeral: ' + roman);
+};
+
+let randNum = (Math.floor(Math.random() * 1000) + 1);
+
+hailCaesar(randNum);
+
 // Function spinalTap(str)
 // The function will convert a string to spinal case.  Spinal case is all-lowercase-words-joined-by-dashes.  For example spinalTap("I own this Taco Stand!") should return "i-own-this-taco-stand!".
+
+function spinalTap(str){
+    let splitStr = str.split(' ');
+    for (var i=0; i<splitStr.length; i++){
+        splitStr[i] = splitStr[i].toLowerCase();
+    }
+    let newStr =  splitStr.join('-');
+    console.log(newStr);
+}
+
+spinalTap('I BeLiEvE I cAn Fly.');
 
 // Function sumFibs(num)
 // The function will return the sum of all ODD Fibonacci numbers up to and including the passed number if it's a Fibonacci number.  The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, where the next number is found by adding up the two numbers before it.  For example subFibs(4) should return 5, sumbFibs(1000) should return 1785.
