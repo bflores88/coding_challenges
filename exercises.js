@@ -1,10 +1,10 @@
 // Function -  FirstFactorial(num)
 // The function will take the num parameter being passed and return the factorial of it (ie. if num =3, return(3 * 2 * 1)).  For test cases, the range will be between 1 and 18.
 
-var num = Math.floor(Math.random() * 18) + 1;
-var result = num;
+let num = Math.floor(Math.random() * 18) + 1;
 
 function findFactorial(num){
+    var result = num;
     for (let i=1; i<num; i++) {
         result = result * i;
     }
@@ -18,8 +18,33 @@ findFactorial(num);
 // Function - SimpleAdding(num)
 // The function will take the num parameter and add up all the numbers from 1 to num.  For test cases, the parameter num will be any number from 1 to 1000.
 
+num = Math.floor(Math.random() * 1000) + 1;
+
+function sumNum(num){
+    var result = num;
+    for (let i=1; i<num; i++){
+        result = result + i;
+    }
+    console.log('Number: ' + num);
+    console.log('Sum of all numbers 1 to Num: ' + result);    
+}
+
+sumNum(num);
+
 // Function - LetterCapitalize(str)
 // The function will take the str parameter being passed and capitalize the first letter of each word.  Words will be separated by only one space.
+
+function capFirstLetter(str){
+    let strSplit = str.split(' ');
+    for (var i=0; i<strSplit.length; i++){
+        strSplit[i] = strSplit[i].charAt(0).toUpperCase() + strSplit[i].slice(1);
+      }
+    return strSplit.join(' ');
+}
+
+let capitalizeThis = capFirstLetter('today is the first day of class.');
+
+console.log(capitalizeThis);
 
 // Function rangeRover(arr)
 // The function will take an array of two numbers and return the sum of those two numbers AND all numbers between them.  The lowest number will not always come first.  For example rangeRover([1, 4]) should return 10, i.e.(1 + 2 + 3 + 4), rangeRover([4, 1]) should also return 10.
