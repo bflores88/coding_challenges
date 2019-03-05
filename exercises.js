@@ -164,7 +164,7 @@ function sumFibs1(num){
     console.log(sumOdd);
 }
 
-sumFibs1(13);
+sumFibs1(90);
 
 
 //using while loop - this works, too
@@ -195,5 +195,5 @@ function sumFibs2(num){
     console.log(sumOdd);
 }
 
-sumFibs2(89);
+sumFibs2(91);
 
